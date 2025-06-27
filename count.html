@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bakery Machine Achievements</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="kk.css">
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+    .counter {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Achievements Section -->
+  <section class="py-20 px-4 bg-white text-center">
+    <h2 class="text-4xl font-bold mb-10" data-aos="fade-down">Our Achievements</h2>
+
+    <div class="card grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
+      
+      <div class="bg-gray-50 p-8 rounded-lg shadow" data-aos="zoom-in" data-aos-delay="200">
+        <div class="achievement-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+        <div class="counter text-blue-600" data-target="20">0</div>
+        <p class="text-lg mt-2 font-semibold">Years of Experience</p>
+      </div>
+
+      <div class="bg-gray-50 p-8 rounded-lg shadow" data-aos="zoom-in" data-aos-delay="200">
+        <div class="achievement-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+        <div class="counter text-green-600" data-target="50">0</div>
+        <p class="text-lg mt-2 font-semibold">Products Developed</p>
+      </div>
+
+      <div class="bg-gray-50 p-8 rounded-lg shadow" data-aos="zoom-in" data-aos-delay="300">
+        <div class="achievement-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+        <div class="counter text-red-600" data-target="1000">0</div>
+        <p class="text-lg mt-2 font-semibold">Satisfied Clients</p>
+      </div>
+
+    </div>
+  </section>
+
+ 
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    // Counter animation
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = target / 200;
+
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(updateCount, 20);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      updateCount();
+    });
+  </script>
+
+</body>
+</html>
